@@ -69,6 +69,7 @@ templates:
 
 # Android Chromium.
 - 'Mozilla/5.0 (Linux; Android <android_version>; K) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version>'
+- 'Mozilla/5.0 (Linux; Android <android_version>; K) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Safari/<safari_version>'
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token>) AppleWebKit/<webkit_version> (KHTML, like Gecko) SamsungBrowser/<samsung_browser_version> Chrome/<chrome_version> Mobile Safari/<safari_version>'
 
 # Android WebView and app shells.
@@ -78,6 +79,7 @@ templates:
 
 # Social in-app browsers.
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> <facebook_iab_token>'
+- 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Safari/<safari_version> <facebook_iab_token>'
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> <instagram_android_token>'
 - 'Mozilla/5.0 (iPhone; CPU iPhone OS <ios_version> like Mac OS X) AppleWebKit/<webkit_version> (KHTML, like Gecko) Mobile/<mobile_build> Safari/<safari_version> <facebook_iab_token>'
 
