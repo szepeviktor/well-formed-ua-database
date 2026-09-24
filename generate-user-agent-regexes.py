@@ -30,6 +30,10 @@ def read_data(path: Path) -> tuple[dict[str, str], list[str]]:
         if not raw_line.strip() or raw_line.lstrip().startswith("#"):
             continue
 
+        if section == "templates" and raw_line.startswith("- "):
+            templates.append(parse_yaml_scalar(raw_line.removeprefix("- ").strip()))
+            continue
+
         if not raw_line.startswith(" "):
             if raw_line == "placeholders:":
                 section = "placeholders"

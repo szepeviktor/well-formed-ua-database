@@ -20,6 +20,7 @@ placeholders:
     instagram_android_token: 'Instagram [0-9]+(?:\.[0-9]+)* Android \([^)]+\)(?: NV/[0-9]+)?'
     chrome_ios_version: '[0-9]+(?:\.[0-9]+)*'
     google_product_name: 'Google(?:bot|Other)-(?:Image|Video)'
+    android_app: '[A-Za-z][A-Za-z0-9_.-]*'
 
 templates:
 # Compatible bot tokens.
@@ -39,6 +40,7 @@ templates:
 - 'Mozilla/5.0 (Windows NT <windows_nt_version>; Win64; x64) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Safari/<safari_version> Edg/<edge_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (Macintosh; Intel Mac OS X <macos_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Safari/<safari_version> Edg/<edge_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (iPhone; CPU iPhone OS <ios_version> like Mac OS X) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Mobile/<mobile_build> Safari/<safari_version> (compatible; <bot_name>/<version>; +<info_url_or_email>)'
+- 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; <bot_name>/<version>; +<info_url_or_email>)'
 - 'Mozilla/5.0 (Windows NT <windows_nt_version>; Win64; x64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (Macintosh; Intel Mac OS X <macos_version>; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (X11; Linux x86_64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
@@ -60,8 +62,9 @@ templates:
 
 # Firefox.
 - 'Mozilla/5.0 (Windows NT <windows_nt_version>; Win64; x64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version>'
-- 'Mozilla/5.0 (Android <android_version>; Mobile; rv:<firefox_version>) Gecko/<firefox_version> Firefox/<firefox_version>'
+- 'Mozilla/5.0 (Android <android_version>; Mobile; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version>'
 - 'Mozilla/5.0 (X11; Linux x86_64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version>'
+- 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version>'
 - 'Mozilla/5.0 (Macintosh; Intel Mac OS X <macos_version>; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version>'
 
 # Android Chromium.
@@ -71,8 +74,7 @@ templates:
 # Android WebView and app shells.
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version>'
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version>'
-- 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> GoogleApp/<version>'
-- 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> Viber/<version>'
+- 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token>; wv) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> <android_app>/<version>'
 
 # Social in-app browsers.
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Chrome/<chrome_version> Mobile Safari/<safari_version> <facebook_iab_token>'
@@ -89,7 +91,6 @@ templates:
 # Known not well-formed UA patterns.
 silly-billy:
     adsbot_google_mobile_android: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; AdsBot-Google-Mobile; +<info_url_or_email>)'
-    googlebot_android: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; Googlebot/<version>; +<info_url_or_email>)'
     linux_chrome_inline_bot_name: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/<webkit_version> (KHTML, like Gecko; <bot_name>) Chrome/<chrome_version> Safari/<safari_version>'
     bytespider_android_versioned: 'Mozilla/5.0 (Linux; Android <android_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Mobile Safari/<safari_version> (compatible; Bytespider/<version>; <info_url_or_email>)'
     bytespider_android: 'Mozilla/5.0 (Linux; Android <android_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Mobile Safari/<safari_version> (compatible; Bytespider; +<info_url_or_email>)'
