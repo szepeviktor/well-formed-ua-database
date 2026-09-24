@@ -43,10 +43,10 @@ Generate regexes for the known not well-formed examples too:
 ## Use With Access Logs
 
 For common web server logs where the User-Agent is the sixth double-quoted
-field:
+field, use [ripgrep](https://github.com/BurntSushi/ripgrep/releases):
 
 ```bash
-cut -d'"' -f6 access.log | grep -P -e "$(paste -sd'|' well-formed-user-agent-regexes.txt)"
+cut -d'"' -f6 access.log | rg --pcre2 -f well-formed-user-agent-regexes.txt
 ```
 
 ## Use With Apache
