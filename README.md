@@ -32,6 +32,14 @@ Custom input and output paths:
   --apache-output well-formed-user-agent-apache.conf
 ```
 
+Generate regexes for the known not well-formed examples too:
+
+```bash
+./generate-user-agent-regexes.py --silly-billy \
+  --output silly-billy-user-agent-regexes.txt \
+  --apache-output silly-billy-user-agent-apache.conf
+```
+
 ## Use With Access Logs
 
 For common web server logs where the User-Agent is the sixth double-quoted

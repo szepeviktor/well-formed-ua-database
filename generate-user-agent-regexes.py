@@ -21,9 +21,10 @@ def parse_yaml_scalar(value: str) -> str:
     return value
 
 
-def read_data(path: Path) -> tuple[dict[str, str], list[str]]:
+def read_data(path: Path) -> tuple[dict[str, str], list[str], list[str]]:
     placeholders: dict[str, str] = {}
     templates: list[str] = []
+    silly_billy: list[str] = []
     section: str | None = None
 
     for line_number, raw_line in enumerate(path.read_text().splitlines(), start=1):
@@ -41,6 +42,10 @@ def read_data(path: Path) -> tuple[dict[str, str], list[str]]:
 
             if raw_line == "templates:":
                 section = "templates"
+                continue
+
+            if raw_line == "silly-billy:":
+                section = "silly-billy"
                 continue
 
             if re.fullmatch(r"[a-z0-9_-]+:", raw_line):
@@ -72,6 +77,20 @@ def read_data(path: Path) -> tuple[dict[str, str], list[str]]:
             templates.append(parse_yaml_scalar(line.removeprefix("- ").strip()))
             continue
 
+        if section == "silly-billy":
+            line = raw_line.strip()
+
+            if ": " not in line:
+                raise ValueError(f"{path}:{line_number}: expected 'name: template'")
+
+            name, template = line.split(": ", 1)
+
+            if not re.fullmatch(r"[a-z0-9_-]+", name):
+                raise ValueError(f"{path}:{line_number}: invalid silly-billy name: {name}")
+
+            silly_billy.append(parse_yaml_scalar(template))
+            continue
+
         if section is None:
             continue
 
@@ -83,7 +102,7 @@ def read_data(path: Path) -> tuple[dict[str, str], list[str]]:
     if not templates:
         raise ValueError(f"{path}: missing templates")
 
-    return placeholders, templates
+    return placeholders, templates, silly_billy
 
 
 def pattern_to_regex(pattern: str, placeholders: dict[str, str]) -> str:
@@ -145,9 +164,15 @@ def main() -> None:
         type=Path,
         help="Output Apache SetEnvIf include file.",
     )
+    parser.add_argument(
+        "--silly-billy",
+        action="store_true",
+        help="Also generate regexes from the known not well-formed UA patterns.",
+    )
     args = parser.parse_args()
 
-    placeholders, patterns = read_data(args.data)
+    placeholders, templates, silly_billy = read_data(args.data)
+    patterns = templates + silly_billy if args.silly_billy else templates
     regexes = [pattern_to_regex(pattern, placeholders) for pattern in patterns]
 
     args.output.write_text("\n".join(regexes) + "\n")
