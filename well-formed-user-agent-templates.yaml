@@ -94,6 +94,7 @@ templates:
 # Known not well-formed UA patterns.
 silly-billy:
     adsbot_google_mobile_android: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; AdsBot-Google-Mobile; +<info_url_or_email>)'
+    googleother_android_unversioned: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; GoogleOther)'
     linux_chrome_inline_bot_name: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/<webkit_version> (KHTML, like Gecko; <bot_name>) Chrome/<chrome_version> Safari/<safari_version>'
     bytespider_android_versioned: 'Mozilla/5.0 (Linux; Android <android_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Mobile Safari/<safari_version> (compatible; Bytespider/<version>; <info_url_or_email>)'
     bytespider_android: 'Mozilla/5.0 (Linux; Android <android_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Mobile Safari/<safari_version> (compatible; Bytespider; +<info_url_or_email>)'
