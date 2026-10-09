@@ -40,6 +40,7 @@ templates:
 - 'Mozilla/5.0 (Windows NT <windows_nt_version>; Win64; x64) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Safari/<safari_version> Edg/<edge_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (Macintosh; Intel Mac OS X <macos_version>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Safari/<safari_version> Edg/<edge_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (iPhone; CPU iPhone OS <ios_version> like Mac OS X) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Mobile/<mobile_build> Safari/<safari_version> (compatible; <bot_name>/<version>; +<info_url_or_email>)'
+- 'Mozilla/5.0 (iPhone; CPU iPhone OS <ios_version> like Mac OS X) AppleWebKit/<webkit_version> (KHTML, like Gecko) Version/<version> Mobile/<mobile_build> Safari/<safari_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; <bot_name>/<version>; +<info_url_or_email>)'
 - 'Mozilla/5.0 (Windows NT <windows_nt_version>; Win64; x64; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
 - 'Mozilla/5.0 (Macintosh; Intel Mac OS X <macos_version>; rv:<firefox_version>) Gecko/<gecko_version> Firefox/<firefox_version> (compatible; <bot_name>/<version> (+<info_url_or_email>))'
@@ -93,6 +94,7 @@ templates:
 
 # Known not well-formed UA patterns.
 silly-billy:
+    google_image_proxy: 'Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)'
     adsbot_google_mobile_android: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; AdsBot-Google-Mobile; +<info_url_or_email>)'
     googleother_android_unversioned: 'Mozilla/5.0 (Linux; Android <android_version>; <android_device_token> Build/<android_build_id>) AppleWebKit/<webkit_version> (KHTML, like Gecko) Chrome/<chrome_version> Mobile Safari/<safari_version> (compatible; GoogleOther)'
     linux_chrome_inline_bot_name: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/<webkit_version> (KHTML, like Gecko; <bot_name>) Chrome/<chrome_version> Safari/<safari_version>'
